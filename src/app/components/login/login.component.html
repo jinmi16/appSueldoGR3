@@ -1,0 +1,35 @@
+
+<div id="login">
+  <div class="container">
+      <div id="login-row" class="row justify-content-center align-items-center">
+          <div id="login-column" class="col-md-6">
+              <div id="login-box" class="col-md-12">
+
+                  <form #loginForm="ngForm" (ngSubmit)="onSubmit()" class="form" action="" method="post">
+                      <h3 class="text-center text-info">Identificate</h3>
+                      <div class="form-group">
+                          <label for="email" class="text-info">usuario:</label>
+                          <br>
+                          <input type="email" name="email" #email="ngModel" [(ngModel)]="usuario.email" class="form-control" placeholder="ejemplo@gmail.com" required/>
+                          <span *ngIf="!email.valid && email.touched"> Email es obligatorio</span>
+                      </div>
+                      <div class="form-group">
+                          <label for="password" class="text-info">Password:</label>
+                          <br>
+                          <input type="password" name="password" #password="ngModel" [(ngModel)]="usuario.password" class="form-control" required/>
+                          <span *ngIf="!password.valid && password.touched"> Password es obligatorio</span>
+                      </div>
+
+                      <div class="form-group" style="text-align: center;">
+                          <input type="submit" name="submit" class="btn btn-info btn-md" value="Ingresar" [disabled]="!loginForm.form.valid">
+                      </div>
+                  </form>
+                  <div class="alert alert-danger" *ngIf="status == 'error'">
+                      Intentelo de nuevo
+                    </div>
+
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+.wrapper {
+  min-height: 100vh;
+
+}
+
+main {
+  max-height: 100%;
+  overflow-y: auto;
+}

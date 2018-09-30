@@ -1,0 +1,54 @@
+<div class="col-lg-12">
+  <div class="alert alert-success" *ngIf="status == 'success'">
+    Has actualizado tu informacion correctamenteRegistro completado exitosamente
+  </div>
+  <div class="alert alert-danger" *ngIf="status == 'error'">
+    No te has has actualizado tus datos
+  </div>
+
+  <form #userEditForm="ngForm" (ngSubmit)="onSubmit()">
+    <p>
+      <label for="">Nombres</label>
+      <input type="text" class="form-control" required name="nombre" #nombre="ngModel" [(ngModel)]="usuario.nombre">
+      <span *ngIf="!nombre.valid && nombre.touched">
+        El nombre es obligatorio
+      </span>
+    </p>
+    <p>
+      <label for="">Apellidos</label>
+      <input type="text" class="form-control" required name="apellido" #apellido="ngModel" [(ngModel)]="usuario.apellido">
+      <span *ngIf="!apellido.valid && apellido.touched">
+        El apellido es obligatorio
+      </span>
+    </p>
+    <p>
+      <label for="">Usuario Email</label>
+      <input type="text" class="form-control" required name="email" #email="ngModel" [(ngModel)]="usuario.email">
+      <span *ngIf="!email.valid && email.touched">
+        Usuario email es obligatorio
+      </span>
+    </p>
+    <!--p>
+    <label for="">Contraseña</label>
+    <input type="text" class="form-control" required name="password" #password="ngModel" [(ngModel)]="usuario.password">
+    <span *ngIf="!password.valid && password.touched">
+      Contraseñaes obligatoria
+    </span>
+  </p-->
+    <p>
+      <label for="">Nickname</label>
+      <input type="text" class="form-control" name="nikname" #nikname="ngModel" [(ngModel)]="usuario.nikname">
+    </p>
+    <p>
+      <label for="">Telefono</label>
+      <input type="text" class="form-control" name="telefono" #telefono="ngModel" [(ngModel)]="usuario.telefono">
+    </p>
+    <p>
+      <label for="">Edad</label>
+      <input type="text" class="form-control" name="edad" #edad="ngModel" [(ngModel)]="usuario.edad">
+    </p>
+
+    <input type="submit" value="Guardar" class="btn btn-primary" [disabled]="!userEditForm.form.valid">
+  </form>
+
+</div>

@@ -1,0 +1,16 @@
+<h3>{{name}}</h3>
+<label class="container">
+  <input type="checkbox" [(ngModel)]="theCheckbox"  data-md-icheck (change)="toggleVisibility($event,10)" /> Checkbox is
+  <span *ngIf="marked">selecionado</span>
+  <span *ngIf="!marked">no seleccionado</span>
+
+  <span class="checkmark"></span>
+</label>
+
+<div>y
+  <b>ngModel</b> tambien funciona, su valor es:
+  <b>{{theCheckbox}}</b>
+</div>
+
+<hr>
+
